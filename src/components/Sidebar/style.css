@@ -1,0 +1,12 @@
+.right-aside {
+    float: right;
+    width: 200px;
+    height: 36px;
+    line-height: 36px;
+    padding: 20px;
+}
+
+.dndnode {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
