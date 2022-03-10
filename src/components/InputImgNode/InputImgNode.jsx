@@ -1,12 +1,22 @@
-import React, { memo } from 'react';
+import React, { memo, useState } from 'react';
 
 import { Handle } from 'react-flow-renderer';
-import { Input, Button } from 'antd';
+import { Input, Image } from 'antd';
 import './style.css'
 
-export default memo(({ data, isConnectable }) => {
+export default memo((props) => {
+    const { data, isConnectable } = props
+    const { customNodeData } = props.data
+    const [value, setValue] = useState(customNodeData || '');
+    const [src, setSrc] = useState('https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png');
+    const change = (e) => {
+        const val = e.target.value;
+        setSrc(val)
+        props.data.imgSrc = val
+        // console.log(val, props);
+    }
     return (
-        <div className='inputNode'>
+        <div className='inputNode' >
             <Handle
                 type="target"
                 position="left"
@@ -15,23 +25,20 @@ export default memo(({ data, isConnectable }) => {
                 isConnectable={isConnectable}
             />
             <div>
-                input 输入框: <strong>{data.color}</strong>
+                input img 输入框: <strong>{data.color}</strong>
             </div>
-            {/* <input
-                className="nodrag"
-                type="color"
-                onChange={data.onChange}
-                defaultValue={data.color}
-            /> */}
-            <Input />
+            <Input onInput={e => change(e)} />
+            <Image
+                className='antdImg'
+                width={100}
+                src={src}
+            />
             <Handle
                 type="source"
                 position="right"
                 id="a"
-                style={{ background: '#555', width: 10, height: "100%" }}
                 isConnectable={isConnectable}
             />
-            <Button type="primary" style={{ marginTop: 10 }}>按钮</Button>
             {/* <Handle
                 type="source"
                 position="right"

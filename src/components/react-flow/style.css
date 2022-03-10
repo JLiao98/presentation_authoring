@@ -1,5 +1,16 @@
+.dndflow {
+    position: relative;
+}
+
 .reactflow-wrapper {
     float: left;
     border: 1px solid #ccc;
-    width: calc(100% - 200px);
+    width: 100%;
+}
+
+.dndflow .getDataBtn {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    z-index: 5;
 }

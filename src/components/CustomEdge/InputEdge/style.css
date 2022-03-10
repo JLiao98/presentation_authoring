@@ -1,0 +1,48 @@
+.box {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.box.clicked {
+    border-color: #40a9ff;
+    box-shadow: 0 0 0 2px rgb(24 144 255 / 20%);
+}
+
+.edge-span {
+    display: inline-block;
+    white-space: nowrap;
+    height: 100%;
+    line-height: 38px;
+}
+
+.box .edge-input {
+    margin-top: 5px;
+    border: none;
+}
+
+.box.clicked .ant-input:focus {
+    border: none;
+    border-color: unset !important;
+    box-shadow: unset !important;
+}
+
+.close {
+    position: absolute;
+    display: inline-block;
+    top: -20px;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    border-radius: 3px;
+    font-size: 12px;
+    color: #000;
+    text-align: center;
+    background-color: #ccc;
+    cursor: pointer;
+}

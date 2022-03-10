@@ -1,12 +1,42 @@
 .right-aside {
-    float: right;
+    position: absolute;
+    right: 0;
+    top: 200px;
+    z-index: 4;
     width: 200px;
-    height: 36px;
-    line-height: 36px;
     padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: #f3f4f7;
+}
+
+
+
+.left-aside {
+    position: absolute;
+    left: 0;
+    top: 200px;
+    z-index: 4;
+    width: 200px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: #f3f4f7;
 }
 
 .dndnode {
     border: 1px solid #ccc;
     margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.inputImgNode img {
+    min-width: 20px;
+    min-height: 20px;
 }

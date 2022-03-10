@@ -1,9 +1,9 @@
 import React from 'react';
 import './style.css'
-import { Input, Upload, message, Button } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
+import { Input, Select, message } from 'antd';
 
-export default () => {
+const { Option } = Select;
+const SiderBar = () => {
     const onDragStart = (event, nodeType) => {
         event.dataTransfer.setData('application/reactflow', nodeType);
         event.dataTransfer.effectAllowed = 'move';
@@ -16,7 +16,7 @@ export default () => {
         },
         onChange(info) {
             if (info.file.status !== 'uploading') {
-                console.log(info.file, info.fileList);
+                // console.log(info.file, info.fileList);
             }
             if (info.file.status === 'done') {
                 message.success(`${info.file.name} file uploaded successfully`);
@@ -25,22 +25,31 @@ export default () => {
             }
         },
     };
+    function handleChange(value) {
+        console.log(`selected ${value}`);
+    }
     return (
-        <aside className='right-aside'>
+        <aside className='left-aside '>
             <div className="description">You can drag these nodes to the pane on the right.</div>
             <div className="dndnode input" onDragStart={(event) => onDragStart(event, 'input')} draggable>
                 Input Node
             </div>
             <div className="dndnode" onDragStart={(event) => onDragStart(event, 'selectorNode')} draggable>
-                Default Node
+                input Node
                 <Input />
             </div>
             <div className="dndnode output" onDragStart={(event) => onDragStart(event, 'uploadFile')} draggable>
                 uploadFile Node
-                <Upload {...props}>
-                    <Button icon={<UploadOutlined />}>Click to Upload</Button>
-                </Upload>
+                <Select defaultValue="lucy" style={{ width: 120 }} onChange={handleChange}>
+                    <Option value="jack">Jack</Option>
+                    <Option value="lucy">Lucy</Option>
+                    <Option value="disabled" disabled>
+                        Disabled
+                    </Option>
+                    <Option value="Yiminghe">yiminghe</Option>
+                </Select>
             </div>
         </aside>
     );
 };
+export default SiderBar
